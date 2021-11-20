@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="695.0" prefWidth="367.0" style="-fx-background-color: grey;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SplashController">
+   <children>
+      <TextField layoutX="61.0" layoutY="96.0" prefHeight="26.0" prefWidth="243.0" promptText="Username" style="-fx-background-radius: 50;">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </TextField>
+      <TextField layoutX="61.0" layoutY="184.0" prefHeight="26.0" prefWidth="243.0" promptText="Password" style="-fx-background-radius: 50;">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </TextField>
+      <TextField layoutX="61.0" layoutY="275.0" prefHeight="26.0" prefWidth="243.0" promptText="Conform Password" style="-fx-background-radius: 50;">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </TextField>
+   </children>
+</AnchorPane>
