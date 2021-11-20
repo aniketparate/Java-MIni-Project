@@ -3,6 +3,7 @@ package application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
@@ -22,18 +23,21 @@ public class MainController {
 //        stage.show();
 //    }
 
-    boolean a = false;
+    private Stage stage;
+    private Parent root;
 
     @FXML
     private void handleButtonClicks(javafx.event.ActionEvent mouseEvent) {
         try {
-            a = true;
-            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("CreateAccount1.fxml")));
-            Stage stage = new Stage();
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("CreateAccount1.fxml")));
+            stage = (Stage)((Node)mouseEvent.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.show();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
+
+
 }

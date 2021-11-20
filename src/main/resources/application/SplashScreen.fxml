@@ -31,6 +31,6 @@
          </font>
       </Label>
       <ProgressBar fx:id="ProgressBar" layoutX="45.0" layoutY="491.0" prefHeight="29.0" prefWidth="275.0" />
-      <Button layoutX="157.0" layoutY="572.0" mnemonicParsing="false" onAction="#handleButtonClicks" text="Button" />
+      <Button layoutX="147.0" layoutY="568.0" mnemonicParsing="false" onAction="#handleButtonClicks" text="Open App" />
    </children>
 </AnchorPane>
