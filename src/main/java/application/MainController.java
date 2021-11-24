@@ -13,8 +13,8 @@ import java.util.Objects;
 
 public class MainController {
 
-    private Stage stage;
-    private Parent root;
+    protected Stage stage;
+    protected Parent root;
 
     @FXML
     private void handleButtonClicks(ActionEvent mouseEvent) {
@@ -23,45 +23,6 @@ public class MainController {
             stage = (Stage)((Node)mouseEvent.getSource()).getScene().getWindow();
             stage.setTitle("MY YATRA");
             //stage.getIcons().add(new Image("icon.png"));
-            stage.setScene(new Scene(root));
-            stage.show();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    @FXML
-    private void Register(ActionEvent mouseEvent) {
-        try {
-            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("LoginPage.fxml")));
-            stage = (Stage)((Node)mouseEvent.getSource()).getScene().getWindow();
-            stage.setTitle("MY YATRA");
-            stage.setScene(new Scene(root));
-            stage.show();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    @FXML
-    private void CreateAccount(ActionEvent mouseEvent) {
-        try {
-            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("CreateAccount.fxml")));
-            stage = (Stage)((Node)mouseEvent.getSource()).getScene().getWindow();
-            stage.setTitle("MY YATRA");
-            stage.setScene(new Scene(root));
-            stage.show();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    @FXML
-    private void LogIn(ActionEvent mouseEvent) {
-        try {
-            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Dashboard.fxml")));
-            stage = (Stage)((Node)mouseEvent.getSource()).getScene().getWindow();
-            stage.setTitle("MY YATRA");
             stage.setScene(new Scene(root));
             stage.show();
         } catch (Exception e) {
