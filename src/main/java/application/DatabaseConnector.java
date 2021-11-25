@@ -12,11 +12,6 @@ public class DatabaseConnector {
         String databaseUser = "AniketParate";
         String databasePassword = "MDJafzw26MBXkQB3";
 
-//        String databaseName = "employee";
-//        String databaseUser = "root";
-//        String databasePassword = "Darkflame@2001";
-
-//        String url = "jdbc:mysql://localhost/" + databaseName;
         String url = "jdbc:mysql://jblminiproject-do-user-10209104-0.b.db.ondigitalocean.com:25060/" + databaseName;
 
         try {
