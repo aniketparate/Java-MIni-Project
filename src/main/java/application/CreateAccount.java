@@ -57,7 +57,7 @@ public class CreateAccount extends MainController{
                 stage.show();
             }
         } else {
-            createMessage.setText("Please fill all the details");
+            createMessage.setText("Please fill all the details.");
         }
     }
 

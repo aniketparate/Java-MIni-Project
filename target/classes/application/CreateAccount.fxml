@@ -18,7 +18,7 @@
             <Font size="20.0" />
          </font>
       </TextField>
-      <TextField fx:id="phoneText" layoutX="605.0" layoutY="272.0" prefHeight="26.0" prefWidth="243.0" promptText="Phone Nimber" style="-fx-background-radius: 50;" AnchorPane.rightAnchor="51.799999999999955" AnchorPane.topAnchor="272.0">
+      <TextField fx:id="phoneText" layoutX="605.0" layoutY="272.0" prefHeight="26.0" prefWidth="243.0" promptText="Phone Number" style="-fx-background-radius: 50;" AnchorPane.rightAnchor="51.799999999999955" AnchorPane.topAnchor="272.0">
          <font>
             <Font size="20.0" />
          </font>
