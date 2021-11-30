@@ -76,7 +76,6 @@ public class CreateAccount extends MainController{
         }catch (Exception e){
             e.printStackTrace();
             e.getCause();
-            return false;
         }
         return false;
     }
