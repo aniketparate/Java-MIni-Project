@@ -38,4 +38,17 @@ public class AdminDashboard extends MainController{
             e.printStackTrace();
         }
     }
+
+    @FXML
+    public void adminLogOutBtn(ActionEvent mouseEvent) {
+        try {
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("AdminLogin.fxml")));
+            stage = (Stage)((Node)mouseEvent.getSource()).getScene().getWindow();
+            stage.setTitle("MY YATRA");
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

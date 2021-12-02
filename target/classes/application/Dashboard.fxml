@@ -11,14 +11,14 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" style="-fx-background-color: grey;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
+<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" style="-fx-background-color: grey;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Dashboard">
    <children>
       <TextField layoutX="140.0" layoutY="128.0" prefHeight="26.0" prefWidth="243.0" promptText="From" style="-fx-background-radius: 50;">
          <font>
             <Font size="20.0" />
          </font>
       </TextField>
-      <Button layoutX="368.0" layoutY="637.0" mnemonicParsing="false" onAction="#Search" prefHeight="40.0" prefWidth="164.0" style="-fx-background-radius: 50;" text="SEARCH">
+      <Button layoutX="368.0" layoutY="637.0" mnemonicParsing="false" onAction="#trainSearch" prefHeight="40.0" prefWidth="164.0" style="-fx-background-radius: 50;" text="SEARCH">
          <font>
             <Font size="18.0" />
          </font>
@@ -28,7 +28,7 @@
             <Font size="20.0" />
          </font>
       </TextField>
-      <DatePicker layoutX="629.0" layoutY="60.0" promptText="DATE" />
+      <DatePicker layoutX="629.0" layoutY="78.0" promptText="DATE" />
       <Text layoutX="367.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text="BOOK TICKET">
          <font>
             <Font size="30.0" />
@@ -49,5 +49,14 @@
             </TableView>
          </children>
       </AnchorPane>
+      <Button layoutX="788.0" layoutY="24.0" mnemonicParsing="false" onAction="#logOutBtn" prefHeight="30.0" prefWidth="89.0" style="-fx-background-radius: 50;" text="Log Out">
+         <graphic>
+            <ImageView fitHeight="21.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/power-off.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
    </children>
 </AnchorPane>

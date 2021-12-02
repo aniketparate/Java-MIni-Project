@@ -1,32 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" style="-fx-background-color: grey;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
+<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" style="-fx-background-color: grey;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.TrainList">
    <children>
-      <Button layoutX="368.0" layoutY="617.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="164.0" style="-fx-background-radius: 50;" text="SEARCH">
+      <Button layoutX="368.0" layoutY="637.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="164.0" style="-fx-background-radius: 50;" text="SEARCH">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <ScrollPane layoutX="54.0" layoutY="95.0" prefHeight="511.0" prefWidth="792.0">
-         <content>
-            <TableView prefHeight="510.0" prefWidth="791.0">
-              <columns>
-                <TableColumn prefWidth="116.79997712373734" text="Train No" />
-                <TableColumn prefWidth="181.6000518798828" text="Train Name" />
-                  <TableColumn prefWidth="189.60000610351562" text="From" />
-                  <TableColumn prefWidth="102.4000244140625" text="Departure Time" />
-                  <TableColumn minWidth="7.20001220703125" prefWidth="159.2000732421875" text="To" />
-                  <TableColumn prefWidth="35.199951171875" text="Arrival Time" />
-              </columns>
-            </TableView>
-         </content>
-      </ScrollPane>
+      <TableView fx:id="trainTable" layoutX="53.0" layoutY="82.0" prefHeight="536.0" prefWidth="794.0">
+         <columns>
+            <TableColumn fx:id="colTrainNo" prefWidth="100.80001068115234" text="Train No" />
+            <TableColumn fx:id="colTrainName" prefWidth="280.79998779296875" text="Train Name" />
+            <TableColumn fx:id="colFrom" prefWidth="120.00003051757812" text="From" />
+            <TableColumn fx:id="colArrivalTime" prefWidth="76.79998779296875" text="Arrival Time" />
+            <TableColumn fx:id="colTo" prefWidth="114.39996337890625" text="To" />
+            <TableColumn fx:id="colDepartureTime" prefWidth="100.0" text="Daparture Time" />
+         </columns>
+      </TableView>
+      <Button layoutX="36.0" layoutY="25.0" mnemonicParsing="false" onAction="#backBtn" prefHeight="30.0" prefWidth="74.0" style="-fx-background-radius: 50;" text="Back">
+         <graphic>
+            <ImageView fitHeight="21.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/arrow.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button layoutX="780.0" layoutY="25.0" mnemonicParsing="false" onAction="#logOutBtn" prefHeight="30.0" prefWidth="89.0" style="-fx-background-radius: 50;" text="Log Out">
+         <graphic>
+            <ImageView fitHeight="21.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/power-off.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
    </children>
 </AnchorPane>

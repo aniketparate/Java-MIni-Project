@@ -41,5 +41,14 @@
             <Font size="20.0" />
          </font>
       </Text>
+      <Button layoutX="51.0" layoutY="35.0" mnemonicParsing="false" onAction="#backBtn" prefHeight="30.0" prefWidth="74.0" style="-fx-background-radius: 50;" text="Back">
+         <graphic>
+            <ImageView fitHeight="21.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/arrow.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
    </children>
 </AnchorPane>

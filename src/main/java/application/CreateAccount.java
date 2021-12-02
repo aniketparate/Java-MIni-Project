@@ -46,6 +46,8 @@ public class CreateAccount extends MainController{
     @FXML
     private Text createMessage;
 
+
+
     @FXML
     private void Register(ActionEvent mouseEvent) throws SQLException, IOException {
         if (!userNameText.getText().isBlank() && !passwordText.getText().isBlank() && !firstNameText.getText().isBlank() && !lastNameText.getText().isBlank() && !phoneText.getText().isBlank() && !emailText.getText().isBlank() && !stateNameText.getText().isBlank() && !cityNameText.getText().isBlank() && !pincodeNumber.getText().isBlank()) {
@@ -71,12 +73,28 @@ public class CreateAccount extends MainController{
             Statement statement = connectDB.createStatement();
             int a = statement.executeUpdate(insertDetails);
             if (a == 1) {
+
                 return true;
             }
+
+
         }catch (Exception e){
             e.printStackTrace();
             e.getCause();
         }
         return false;
+    }
+
+    @FXML
+    public void backBtn(ActionEvent mouseEvent) {
+        try {
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("LoginPage.fxml")));
+            stage = (Stage)((Node)mouseEvent.getSource()).getScene().getWindow();
+            stage.setTitle("MY YATRA");
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

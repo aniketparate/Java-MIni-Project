@@ -69,4 +69,17 @@ public class AdminLogin extends MainController{
         }
         return false;
     }
+
+    @FXML
+    public void backBtn(ActionEvent mouseEvent) {
+        try {
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("LoginPage.fxml")));
+            stage = (Stage)((Node)mouseEvent.getSource()).getScene().getWindow();
+            stage.setTitle("MY YATRA");
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
