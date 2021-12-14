@@ -89,13 +89,15 @@ public class AllUserData extends MainController implements Initializable {
 
     @FXML
     public void deleteButton(ActionEvent mouseEvent) throws Exception {
-        if (Delete()) {
-            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("AllUserData.fxml")));
-            stage = (Stage)((Node)mouseEvent.getSource()).getScene().getWindow();
-            stage.setTitle("MY YATRA");
-            //stage.getIcons().add(new Image("icon.png"));
-            stage.setScene(new Scene(root));
-            stage.show();
+        if (!userNameText.getText().isBlank()) {
+            if (Delete()) {
+                root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("AllUserData.fxml")));
+                stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
+                stage.setTitle("MY YATRA");
+                //stage.getIcons().add(new Image("icon.png"));
+                stage.setScene(new Scene(root));
+                stage.show();
+            }
         } else {
             userMessage.setText("Please enter UserName to Delete.");
         }

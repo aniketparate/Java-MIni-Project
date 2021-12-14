@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
@@ -19,19 +20,23 @@
       </Text>
       <AnchorPane layoutX="9.0" layoutY="82.0" prefHeight="536.0" prefWidth="879.0">
          <children>
-            <TableView fx:id="userTable" prefHeight="536.0" prefWidth="879.0">
-              <columns>
-                <TableColumn fx:id="colUserName" prefWidth="80.79998016357422" text="UserName" />
-                <TableColumn fx:id="colPassword" prefWidth="81.60000610351562" text="Password" />
-                  <TableColumn fx:id="colFirstName" prefWidth="74.4000244140625" text="FirstName" />
-                  <TableColumn fx:id="colLastName" prefWidth="68.79998779296875" text="LastName" />
-                  <TableColumn fx:id="colEmail" prefWidth="206.39999389648438" text="Email" />
-                  <TableColumn fx:id="colPhoneNo" prefWidth="106.39996337890625" text="Phone No" />
-                  <TableColumn fx:id="colState" prefWidth="94.39990234375" text="State" />
-                  <TableColumn fx:id="colCity" prefWidth="85.60009765625" text="City" />
-                  <TableColumn fx:id="colPinCode" text="PinCode" />
-              </columns>
-            </TableView>
+            <ScrollPane prefHeight="536.0" prefWidth="879.0">
+               <content>
+                  <TableView fx:id="userTable" prefHeight="536.0" prefWidth="879.0">
+                    <columns>
+                      <TableColumn fx:id="colUserName" prefWidth="80.79998016357422" text="UserName" />
+                      <TableColumn fx:id="colPassword" prefWidth="81.60000610351562" text="Password" />
+                        <TableColumn fx:id="colFirstName" prefWidth="74.4000244140625" text="FirstName" />
+                        <TableColumn fx:id="colLastName" prefWidth="68.79998779296875" text="LastName" />
+                        <TableColumn fx:id="colEmail" prefWidth="206.39999389648438" text="Email" />
+                        <TableColumn fx:id="colPhoneNo" prefWidth="106.39996337890625" text="Phone No" />
+                        <TableColumn fx:id="colState" prefWidth="94.39990234375" text="State" />
+                        <TableColumn fx:id="colCity" prefWidth="85.60009765625" text="City" />
+                        <TableColumn fx:id="colPinCode" text="PinCode" />
+                    </columns>
+                  </TableView>
+               </content>
+            </ScrollPane>
          </children>
       </AnchorPane>
       <Button fx:id="addButton" layoutX="20.0" layoutY="637.0" mnemonicParsing="false" onAction="#Add_users" prefHeight="40.0" prefWidth="115.0" style="-fx-background-radius: 50;" text="Add">

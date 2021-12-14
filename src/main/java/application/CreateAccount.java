@@ -73,11 +73,8 @@ public class CreateAccount extends MainController{
             Statement statement = connectDB.createStatement();
             int a = statement.executeUpdate(insertDetails);
             if (a == 1) {
-
                 return true;
             }
-
-
         }catch (Exception e){
             e.printStackTrace();
             e.getCause();
