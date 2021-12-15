@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" style="-fx-background-color: grey;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.AddPassenger">
+   <children>
+      <TextField fx:id="passengerNameText" layoutX="52.0" layoutY="179.0" prefHeight="26.0" prefWidth="243.0" promptText="Name" style="-fx-background-radius: 50;">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="genderText" layoutX="330.0" layoutY="179.0" prefHeight="26.0" prefWidth="243.0" promptText="Gender" style="-fx-background-radius: 50;" AnchorPane.bottomAnchor="477.79999999999995" AnchorPane.leftAnchor="330.0" AnchorPane.rightAnchor="326.79999999999995" AnchorPane.topAnchor="179.0">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="ageText" layoutX="605.0" layoutY="179.0" prefHeight="26.0" prefWidth="243.0" promptText="Age" style="-fx-background-radius: 50;" AnchorPane.rightAnchor="52.0" AnchorPane.topAnchor="179.0">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </TextField>
+      <Button layoutX="388.0" layoutY="632.0" mnemonicParsing="false" onAction="#confirmPassengerBtn" style="-fx-background-radius: 50;" text="CONFIRM">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Text layoutX="335.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Passengers">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Text>
+      <Text fx:id="passengerMessage" layoutX="179.0" layoutY="693.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="523.1999999999999">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Button layoutX="44.0" layoutY="35.0" mnemonicParsing="false" onAction="#backBtn" prefHeight="30.0" prefWidth="74.0" style="-fx-background-radius: 50;" text="Back">
+         <graphic>
+            <ImageView fitHeight="21.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/arrow.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <AnchorPane layoutX="18.0" layoutY="239.0" prefHeight="376.0" prefWidth="865.0">
+         <children>
+            <ScrollPane prefHeight="376.0" prefWidth="865.0">
+               <content>
+                  <TableView fx:id="confirmPassengerTable" prefHeight="376.0" prefWidth="864.0">
+                    <columns>
+                      <TableColumn fx:id="colPassengerName" prefWidth="185.0" text="Passenger Name" />
+                      <TableColumn fx:id="colGender" prefWidth="102.0" text="Gender" />
+                        <TableColumn fx:id="colAge" prefWidth="79.0" text="Age" />
+                        <TableColumn fx:id="colFrom" prefWidth="81.0" text="From" />
+                        <TableColumn fx:id="colScheduledDeparture" prefWidth="130.0" text="Scheduled Departure" />
+                        <TableColumn fx:id="colTo" prefWidth="72.0" text="To" />
+                        <TableColumn fx:id="colScheduledArrival" prefWidth="118.0" text="Scheduled Arrival" />
+                        <TableColumn fx:id="colStatus" prefWidth="96.0" text="Status" />
+                    </columns>
+                  </TableView>
+               </content>
+            </ScrollPane>
+         </children>
+      </AnchorPane>
+      <Text layoutX="308.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Available Seats : ">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text fx:id="seatText" layoutX="441.0" layoutY="129.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="209.6044921875">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Button layoutX="36.0" layoutY="632.0" mnemonicParsing="false" onAction="#addPassenger" prefHeight="39.0" prefWidth="89.0" style="-fx-background-radius: 50;" text="Add">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="774.0" layoutY="632.0" mnemonicParsing="false" onAction="#deletePassenger" style="-fx-background-radius: 50;" text="Remove">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <TextField fx:id="nameRemoveText" layoutX="573.0" layoutY="630.0" prefHeight="44.0" prefWidth="188.0" promptText="Name" style="-fx-background-radius: 50;">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </TextField>
+   </children>
+</AnchorPane>
