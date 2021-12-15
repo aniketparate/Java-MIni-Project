@@ -26,12 +26,39 @@ public class AdminDashboard extends MainController{
     }
 
     @FXML
+    private void stationData(ActionEvent mouseEvent) throws Exception{
+        try {
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("AllStationData.fxml")));
+            stage = (Stage)((Node)mouseEvent.getSource()).getScene().getWindow();
+            stage.setTitle("MY YATRA");
+            //stage.getIcons().add(new Image("icon.png"));
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
     private void trainData(ActionEvent mouseEvent) throws Exception{
         try {
             root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("TrainData.fxml")));
             stage = (Stage)((Node)mouseEvent.getSource()).getScene().getWindow();
             stage.setTitle("MY YATRA");
             //stage.getIcons().add(new Image("icon.png"));
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void passengerData(ActionEvent mouseEvent) throws Exception{
+        try {
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("AllPassenger.fxml")));
+            stage = (Stage)((Node)mouseEvent.getSource()).getScene().getWindow();
+            stage.setTitle("MY YATRA");
             stage.setScene(new Scene(root));
             stage.show();
         } catch (Exception e) {

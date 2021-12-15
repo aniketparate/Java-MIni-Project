@@ -3,16 +3,11 @@ package application;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
+
 public class DatabaseConnector {
     public Connection databaseLink;
 
     public Connection getDatabaseLink() {
-//        String databaseName = "RailwayTicketBookingSystem";
-//        String databaseUser = "AniketParate";
-//        String databasePassword = "MDJafzw26MBXkQB3";
-
-//        String url = "jdbc:mysql://jblminiproject-do-user-10209104-0.b.db.ondigitalocean.com:25060/" + databaseName;
-
         //String databaseName = "RailwayTicketBookingSystem";
         String databaseName = "railwayticketbooking";
         //String databaseUser = "AniketParate";
@@ -21,6 +16,7 @@ public class DatabaseConnector {
         String databasePassword = "Darkflame@2001";
 
         String url = "jdbc:mysql://localhost/" + databaseName;
+        //String url = "jdbc:mysql://jblminiproject-do-user-10209104-0.b.db.ondigitalocean.com:25060/" + databaseName;
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");

@@ -29,6 +29,8 @@ public class AddPassenger extends MainController implements Initializable {
     public static String SourceTime;
     public static String Destination;
     public static String DestinationTime;
+    public static String seatNo;
+    public static String username;
 
     @FXML
     private TextField ageText;
@@ -103,7 +105,7 @@ public class AddPassenger extends MainController implements Initializable {
         Connection connectDB = connector.getDatabaseLink();
         ObservableList<confirmPassenger> list = FXCollections.observableArrayList();
         try {
-            PreparedStatement ps = connectDB.prepareStatement("select * from confirm_passenger");
+            PreparedStatement ps = connectDB.prepareStatement("select name,gender,age,source,scheduled_departure,destination,scheduled_arrival,booking_status from confirm_passenger");
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()){
@@ -120,7 +122,7 @@ public class AddPassenger extends MainController implements Initializable {
     @FXML
     void addPassenger(ActionEvent mouseEvent) throws SQLException, IOException {
         if (!passengerNameText.getText().isBlank() && !genderText.getText().isBlank() && !ageText.getText().isBlank()) {
-            if (addPassengerInfo()) {
+            if (addPassengerInfo() && updateSeatDecrease()) {
                 root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("AddPassenger.fxml")));
                 stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
                 stage.setTitle("MY YATRA");
@@ -133,16 +135,34 @@ public class AddPassenger extends MainController implements Initializable {
         }
     }
 
-    private void decreaseSeats() {
-        seat = seat - 1;
-        seatText.setText(String.valueOf(seat));
+    private int decreaseSeats() {
+        return seat = seat - 1;
+    }
+
+    private boolean updateSeatDecrease() throws SQLException {
+        DatabaseConnector connector = new DatabaseConnector();
+        Connection connectDB = connector.getDatabaseLink();
+
+        String updateDetails = "UPDATE seats SET no_of_seats = "+ decreaseSeats() +" WHERE train_no = "+ TrainNo +"";
+
+        try {
+            Statement statement = connectDB.createStatement();
+            int a = statement.executeUpdate(updateDetails);
+            if (a == 1) {
+                return true;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            e.getCause();
+        }
+        return false;
     }
 
     private boolean addPassengerInfo() throws SQLException {
         DatabaseConnector connector = new DatabaseConnector();
         Connection connectDB = connector.getDatabaseLink();
 
-        String insertDetails = "INSERT INTO confirm_passenger(name,gender,age,source,scheduled_departure,destination,scheduled_arrival,booking_status) VALUES('"+passengerNameText.getText()+"','"+genderText.getText()+"',"+ageText.getText()+",'"+Source+"','"+SourceTime+"','"+Destination+"','"+DestinationTime+"','"+Status()+"')";
+        String insertDetails = "INSERT INTO confirm_passenger(name,gender,age,train_no,train_name,source,scheduled_departure,destination,scheduled_arrival,username,booking_status) VALUES('"+passengerNameText.getText()+"','"+genderText.getText()+"',"+ageText.getText()+",'"+TrainNo+"','"+TrainName+"','"+Source+"','"+SourceTime+"','"+Destination+"','"+DestinationTime+"','"+username+"','"+Status()+"')";
 
         try {
             Statement statement = connectDB.createStatement();
@@ -157,26 +177,10 @@ public class AddPassenger extends MainController implements Initializable {
         return false;
     }
 
-    private String Status() {
-        int seat = Integer.parseInt(getSeatData());
-        if (seat > 0) {
-            return "Available";
-        } else if (seat >= -50){
-            return "Waiting";
-        } else {
-            return "Not Available";
-        }
-    }
-
     @FXML
-    void continuePassengerBtn(ActionEvent event) {
-
-    }
-
-    @FXML
-    void deletePassenger(ActionEvent mouseEvent) throws IOException {
+    void deletePassenger(ActionEvent mouseEvent) throws IOException, SQLException {
         if (!nameRemoveText.getText().isBlank()) {
-            if (delete()) {
+            if (delete() && updateSeatIncrease()) {
                 root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("AddPassenger.fxml")));
                 stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
                 stage.setTitle("MY YATRA");
@@ -184,7 +188,7 @@ public class AddPassenger extends MainController implements Initializable {
                 stage.show();
             }
         } else {
-            passengerMessage.setText("Please enter Station Code to delete.");
+            passengerMessage.setText("Please enter Passenger Name to delete.");
         }
     }
 
@@ -194,6 +198,7 @@ public class AddPassenger extends MainController implements Initializable {
         PreparedStatement pst = null;
 
         String sql = "delete from confirm_passenger where name = '"+nameRemoveText.getText()+"'";
+
         try {
             pst = connectDB.prepareStatement(sql);
             pst.execute();
@@ -205,9 +210,57 @@ public class AddPassenger extends MainController implements Initializable {
         }
     }
 
+    private int increaseSeats() {
+        return seat = seat + 1;
+    }
+
+    private boolean updateSeatIncrease() throws SQLException {
+        DatabaseConnector connector = new DatabaseConnector();
+        Connection connectDB = connector.getDatabaseLink();
+
+        String updateDetails = "UPDATE seats SET no_of_seats = "+ increaseSeats() +" WHERE train_no = "+ TrainNo +"";
+
+        try {
+            Statement statement = connectDB.createStatement();
+            int a = statement.executeUpdate(updateDetails);
+            if (a == 1) {
+                return true;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            e.getCause();
+        }
+        return false;
+    }
+
+    private String Status() {
+        int seat = Integer.parseInt(getSeatData());
+
+        if (seat > 0 && seat <= 200) {
+            return "Available";
+        } else if (seat >= -50){
+            return "Waiting";
+        } else {
+            return "Not Available";
+        }
+    }
+
+    @FXML
+    void confirmPassengerBtn(ActionEvent mouseEvent) {
+        try {
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Payment.fxml")));
+            stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
+            stage.setTitle("MY YATRA");
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     @FXML
     void backBtn(ActionEvent mouseEvent) {
-        if (emptyPassenger()) {
+        if (emptyPassenger() && resetSeats()) {
             try {
                 root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("TrainList.fxml")));
                 stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
@@ -234,6 +287,25 @@ public class AddPassenger extends MainController implements Initializable {
             e.printStackTrace();
             return false;
         }
+    }
+
+    private boolean resetSeats() {
+        DatabaseConnector connector = new DatabaseConnector();
+        Connection connectDB = connector.getDatabaseLink();
+
+        String updateDetails = "UPDATE seats SET no_of_seats = "+ seatNo +" WHERE train_no = "+ TrainNo +"";
+
+        try {
+            Statement statement = connectDB.createStatement();
+            int a = statement.executeUpdate(updateDetails);
+            if (a == 1) {
+                return true;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            e.getCause();
+        }
+        return false;
     }
 
     @Override

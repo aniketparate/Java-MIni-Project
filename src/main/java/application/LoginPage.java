@@ -28,6 +28,7 @@ public class LoginPage extends MainController {
     private void LogIn(ActionEvent mouseEvent) throws SQLException, IOException {
         if (!userNameText.getText().isBlank() && !passwordText.getText().isBlank()) {
             if (loginValidate()) {
+                AddPassenger.username = userNameText.getText();
                 root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Dashboard.fxml")));
                 stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
                 stage.setTitle("MY YATRA");

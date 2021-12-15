@@ -9,7 +9,7 @@
 
 <AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" style="-fx-background-color: grey;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.AdminDashboard">
    <children>
-      <Button fx:id="loginButton" layoutX="377.0" layoutY="376.0" mnemonicParsing="false" onAction="#trainData" prefHeight="40.0" prefWidth="142.0" style="-fx-background-radius: 50;" text="TRAIN DATA">
+      <Button fx:id="loginButton" layoutX="365.0" layoutY="361.0" mnemonicParsing="false" onAction="#trainData" prefHeight="40.0" prefWidth="166.0" style="-fx-background-radius: 50;" text="ALL TRAIN DATA">
          <font>
             <Font size="18.0" />
          </font>
@@ -24,12 +24,12 @@
             <Font size="20.0" />
          </font>
       </Text>
-      <Button fx:id="loginButton1" layoutX="358.0" layoutY="271.0" mnemonicParsing="false" onAction="#userData" prefHeight="40.0" prefWidth="182.0" style="-fx-background-radius: 50;" text="ALL USER DATA">
+      <Button fx:id="loginButton1" layoutX="357.0" layoutY="187.0" mnemonicParsing="false" onAction="#userData" prefHeight="40.0" prefWidth="182.0" style="-fx-background-radius: 50;" text="ALL USER DATA">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Button fx:id="loginButton2" layoutX="377.0" layoutY="471.0" mnemonicParsing="false" onAction="#adminLogOutBtn" prefHeight="40.0" prefWidth="142.0" style="-fx-background-radius: 50;" text="Log Out">
+      <Button fx:id="loginButton2" layoutX="377.0" layoutY="554.0" mnemonicParsing="false" onAction="#adminLogOutBtn" prefHeight="40.0" prefWidth="142.0" style="-fx-background-radius: 50;" text="Log Out">
          <font>
             <Font size="18.0" />
          </font>
@@ -40,6 +40,16 @@
                </image>
             </ImageView>
          </graphic>
+      </Button>
+      <Button fx:id="loginButton11" layoutX="359.0" layoutY="277.0" mnemonicParsing="false" onAction="#stationData" prefHeight="40.0" prefWidth="182.0" style="-fx-background-radius: 50;" text="ALL STATION DATA">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="loginButton111" layoutX="339.0" layoutY="444.0" mnemonicParsing="false" onAction="#passengerData" prefHeight="40.0" prefWidth="222.0" style="-fx-background-radius: 50;" text="ALL PASSENGER DATA">
+         <font>
+            <Font size="18.0" />
+         </font>
       </Button>
    </children>
 </AnchorPane>
